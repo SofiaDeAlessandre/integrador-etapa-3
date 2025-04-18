@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 
 app.listen(PORT, (err) => {
-    //if (err) throw new Error('No se pudo levantar el servidor')
+   if (err) throw new Error('No se pudo levantar el servidor')
   console.log(`Servidor funcionando en: http://localhost:${PORT}`)
     connection(URI_DB)
 })

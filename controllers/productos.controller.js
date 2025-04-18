@@ -1,32 +1,67 @@
+import models from '../models/productos.models.js'
 
-const getAll = (req, res) => {
-    res.send('GET ALL')
+
+const getAll = async (req, res) => {
+try {
+  const productos = await models.obtenerTodosLosProductos()
+    res.json(productos)
+} catch (error) {
+  console.log(error)
+}
+  
   }
 
-  const getOne = (req, res) => {
+  const getOne = async (req, res) => {
     const id = req.params.id
-    console.log(id)
-    res.send('GET ONE')
+
+    try {
+      const producto = await models.obtenerUnProducto(id)
+    res.json(producto)
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({mensaje: 'Algo falló, no se pudo obtener el producto solicitado'})
+    }
+
+    
   }
 
-  const create = (req, res) => {
+  const create = async (req, res) => {
     const productoACrear = req.body
-    console.log(productoACrear)
-    res.send('CREATED Producto')
+    
+    try {
+      const productoGuardado = await  models.crearUnProducto(productoACrear)
+    res.status(201).json(productoGuardado)
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({mensaje: 'Algo falló, no se pudo guardar el producto'})
+    }   
   }
 
-  const update = (req, res) => {
+  const update = async (req, res) => {
     const id = req.params.id
     const productoAEditar = req.body
-    console.log(id)
-    console.log(productoAEditar)
-    res.send('UPDATED Producto')
+    productoAEditar.id = id
+
+    try {
+    const productoEditado = await models.editarUnProducto(productoAEditar)
+    res.json(productoEditado)
+    } catch (error) {
+      res.status(500).json({mensaje: 'No se pudo editar el producto solicitado'})
+    }
   }
 
-  const remove = (req, res) => {
+  const remove = async (req, res) => {
     const id = req.params.id
-    console.log(id)
-    res.send('DELETED producto')
+    
+    try {
+      const productoEliminado = await models.eliminarProducto(id)
+    res.json(productoEliminado)
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({mensaje:'No se pudo borrar el producto'})
+    }
+
+    
   }
 
   export default {

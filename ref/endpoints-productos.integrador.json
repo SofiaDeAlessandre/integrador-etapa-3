@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "01e62955-f4c8-4451-a6d4-89397c572e4b",
+		"name": "73591 Integrador etapa 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43806236",
+		"_collection_link": "https://sofia-5866412.postman.co/workspace/Sofia's-Workspace~3a67624a-d1d6-48b0-816e-cc046dcabd06/collection/43806236-01e62955-f4c8-4451-a6d4-89397c572e4b?action=share&source=collection_link&creator=43806236"
+	},
+	"item": [
+		{
+			"name": "Obtener todos los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"PC\",\r\n    \"precio\": 222.2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"PC\",\r\n    \"precio\": 222.2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
