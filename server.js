@@ -3,6 +3,7 @@ import 'dotenv/config'
 import connection from './utils/connection.js'
 import routerProductos from './routers/productos.router.js'
 import routerUsuarios from './routers/usuarios.router.js'
+import routerUploads from './routers/uploads.router.js'
 
 const app = express()
 const PORT = 8080
@@ -14,6 +15,8 @@ app.use(express.json())
 
 app.use('/api/v1/productos', routerProductos)
 app.use('/api/v1/usuarios', routerUsuarios)
+app.use('/api/v1/uploads', routerUploads)
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
