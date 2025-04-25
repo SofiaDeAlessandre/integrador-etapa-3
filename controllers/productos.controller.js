@@ -18,11 +18,9 @@ const getOne = async (req, res) => {
     res.json(handleMongoId(producto));
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({
-        mensaje: "Algo falló, no se pudo obtener el producto solicitado",
-      });
+    res.status(500).json({
+      mensaje: "Algo falló, no se pudo obtener el producto solicitado",
+    });
   }
 };
 
