@@ -5,7 +5,6 @@ import cors from 'cors'
 
 import connection from './utils/connection.js'
 import routerProductos from './routers/productos.router.js'
-import routerUsuarios from './routers/usuarios.router.js'
 import routerUploads from './routers/uploads.router.js'
 import routerCarrito from './routers/carrito.router.js'
 
@@ -23,7 +22,6 @@ app.use(express.static(path.join('public')))
 app.use(cors(corsConfig))
 
 app.use('/api/v1/productos', routerProductos)
-app.use('/api/v1/usuarios', routerUsuarios)
 app.use('/api/v1/uploads', routerUploads)
 app.use('/api/v1/carrito', routerCarrito)
 

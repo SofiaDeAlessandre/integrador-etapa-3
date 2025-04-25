@@ -1,26 +1,27 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const carritoSchema = mongoose.Schema({
-    carrito: Array
-},
-{
+const carritoSchema = mongoose.Schema(
+  {
+    carrito: Array,
+  },
+  {
     timestamps: true,
-    versionKey: false
-})
+    versionKey: false,
+  }
+);
 
-
-const CarritoModel = mongoose.model('carritos', carritoSchema)
+const CarritoModel = mongoose.model("carritos", carritoSchema);
 
 const crearCarrito = async (carrito) => {
-try {
-    const carritoCreado = new CarritoModel( carrito )
-    const carritoGuardado = await carritoCreado.save()
-    return carritoGuardado
-} catch (error) {
-    throw error
-}
-}
+  try {
+    const carritoCreado = new CarritoModel(carrito);
+    const carritoGuardado = await carritoCreado.save();
+    return carritoGuardado;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export default {
-    crearCarrito
-}
+  crearCarrito,
+};
